@@ -20,7 +20,7 @@ const UserProfilePage = () => {
         </div>
         <div className="flex row">
           {profile.badges.map((badge) => (
-            <Badge name={badge.name} key={badge.name} />
+            <Badge name={badge.name} key={badge.name}  className={''}/>
           ))}
         </div>
         <div className="row"></div>

@@ -10,7 +10,7 @@ const UserProfile: React.SFC<UserProfileProps> = () => {
     return ( 
 
     <>
-        <div className="avatar"></div>
+        <div className="avatar bg-no-repeat bg-contain w-20 h-20"></div>
 
           <OverallBadge level={profile.overallBadge.level} />
         <div className="flex flex-wrap">
@@ -20,11 +20,7 @@ const UserProfile: React.SFC<UserProfileProps> = () => {
         </div>
       <style jsx>{`
         .avatar {
-          background: url(${profile.avatar});
-          background-repeat: no-repeat;
-          background-size: contain;
-          width: 128px;
-          height: 128px;
+          background-image: url(${profile.avatar});
         }
       `}</style>
     </>
