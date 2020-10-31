@@ -1,11 +1,28 @@
+import { graphql, fetchQuery } from 'react-relay'
+import { useQuery } from 'relay-hooks'
+
+import { initEnvironment } from '../lib/createEnvironment'
+import BlogPosts from '../components/BlogPosts'
+
 import Head from 'next/head'
 import FeedCotainer from '../components/FeedContainer'
 import UserProfile from '../components/UserProfile'
-import CircularProgress from '../components/CircularProgress'
 
-export const Home = (): JSX.Element => (
+
+const query = graphql`
+  query pages_indexQuery {
+    viewer {
+      ...BlogPosts_viewer
+    }
+  }
+`
+
+export const Home = (): JSX.Element => {
+  const { error, props } = useQuery(query)
+ return (
   <div className="container flex justify-center">
-    <Head>
+    <BlogPosts viewer={props.viewer} />
+   <Head>
       <title>First Contributions</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
@@ -55,5 +72,21 @@ export const Home = (): JSX.Element => (
     `}</style>
   </div>
 )
+    }
+
+
+export async function getStaticProps() {
+  const { environment, relaySSR } = initEnvironment()
+
+  await fetchQuery(environment, query)
+
+  const relayData = (await relaySSR.getCache())?.[0]
+
+  return {
+    props: {
+      relayData: !relayData ? null : [[relayData[0], relayData[1].json]],
+    },
+  }
+}
 
 export default Home

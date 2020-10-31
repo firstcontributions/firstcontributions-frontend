@@ -1,9 +1,0 @@
-type Query {
-  viewer: User
-
-  # Fetches an object given its ID
-  node(
-    # The ID of an object
-    id: ID!
-  ): Node
-}
