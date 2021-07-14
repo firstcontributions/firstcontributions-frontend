@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Post from '../../../components/post/Post'
-import { posts } from '../../../cypress/fixtures/posts.json'
+import { posts } from '../../../../cypress/fixtures/posts.json'
 
 const PostContent = () => {
   const router = useRouter()

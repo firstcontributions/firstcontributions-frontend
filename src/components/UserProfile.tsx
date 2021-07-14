@@ -1,4 +1,4 @@
-import { profile } from '../cypress/fixtures/profile.json'
+import { profile } from '../../cypress/fixtures/profile.json'
 import OverallBadge from './user-profile/OverallBadge'
 import Badge from './user-profile/Badge'
 import Link from 'next/link'

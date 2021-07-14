@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import OverallBadge from '../../../components/user-profile/OverallBadge'
 import Badge from '../../../components/user-profile/Badge'
-import { profile } from '../../../cypress/fixtures/profile.json'
+import { profile } from '../../../../cypress/fixtures/profile.json'
 
 const UserProfilePage = () => {
   const router = useRouter()

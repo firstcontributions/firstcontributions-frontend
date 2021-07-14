@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Posts from './post/Posts'
-import { posts } from '../cypress/fixtures/posts.json'
+import { posts } from '../../cypress/fixtures/posts.json'
 // eslint-disable-next-line
 export interface FeedCotainerProps {}
 
